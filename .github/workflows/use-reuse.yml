@@ -71,6 +71,8 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       artifact-name: dist-files
+#    secrets:
+#      some-secret: ${{ secrets.some-secret }}
   report:
     needs: # 不只是看 lint 或 deploy 這兩個 job，而是會往前看整個 chain 的情況
       - lint
