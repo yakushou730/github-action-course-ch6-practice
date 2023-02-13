@@ -73,6 +73,12 @@ jobs:
       artifact-name: dist-files
 #    secrets:
 #      some-secret: ${{ secrets.some-secret }}
+  print-deploy-result:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Deploy Output
+        run: echo "${{ needs.deploy.outputs.result }}"
   report:
     needs: # 不只是看 lint 或 deploy 這兩個 job，而是會往前看整個 chain 的情況
       - lint
